@@ -1,0 +1,44 @@
+\chapter{DRY}
+
+Em \cite{clean2009}, Robert C. Martin defende a importancia da programação
+dizendo que apesar das ferramentas de geração de código, nós nunca estaremos
+livres do código. Ainda segundo ele, o codigo representa o detalhamento dos
+requisitos, sendo a linguagem utilizada para expressa-los.
+
+Infelizmente, conhecimento não é estável, ele muda constantemente. Essa
+instabilidade faz com que uma grande parte do tempo de desenvolvimento seja
+gasto na manutenção do código, reorganizando e re-expressando o conhecimento do
+sistema.
+
+Ao realizar manutenções é necessário encontrar e mudar a representação do
+conhecimento incorporado a aplicação. O problema é que conhecimento é fácil de
+ser duplicado em especificações, processos e programas que nós
+desenvolvemos\cite{pragmatic1999}.
+
+Essa duplicação incha desnecessáriamente a base de código, resultando em mais
+oportunidades para bugs e adicionando complexidade adicional para o sistema. O
+inchaço que a duplicação tras ao sistema também o torna mais dificil de ser
+totalmente compreendido pelos desenvolvedores do sistema, ou de ter certeza que
+certas mudanças feitas em um lugar não precisam ser feitas em outras partes que
+duplicam a lógica na qual se está trabalhando\cite{97things2010}.
+
+Nesse contexto é que encontramos o principio DRY que diz que todo pedaço de
+conhecimento deve ter uma única, universal e autoritativa representação dentro
+de um sistemas. 
+
+Quando seguido respeitando a estrutura, lógica, processo e função, o principio
+DRY fornece um orientação fundamental para os desenvolvedores de software e
+auxilia a criação de aplicações mais simples, manuteniveis e de alta qualidade..
+\cite{97things2010}.
+
+\section{Principios relacionados}
+
+Existem uma série de outros príncipios de software relacionados ao príncipio
+DRY. A seguir iremos apresentar alguns deles e falar sobre como esses principios
+se relacionam.
+
+\subsection{Principio Open/Closed}
+
+Esse principio foi cunhado em 1988 por Bertran Meyer\cite{cgems}
+
+

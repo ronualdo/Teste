@@ -1,0 +1,167 @@
+%\documentclass[a4paper,12pt]{article}   % Seu arquivo fonte precisa conter
+\documentclass[12pt,oneside]{book}  %{abnt}
+%\usepackage[brazilian]{babel}       %hifeniza em portugues
+\usepackage[english,brazil]{babel}  % idiomas permitidos
+%\usepackage[a4paper,top=30mm,bottom=20mm,left=30mm,right=30mm]{geometry}
+\usepackage[T1]{fontenc}            %trata caracteres acentuados
+\usepackage{ae}                     %resolve efeito colateral de [T1] em PDF
+%\usepackage[latin1]{inputenc}   %edição direta com acentos
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}             % correta formatação da página em A4
+\usepackage{times}              % uma fonte true type
+\usepackage{fancyvrb}           % códigos Verbatim
+%\usepackage{float}              % nem lembro
+\usepackage{setspace}            % espaçamento duplo
+\usepackage{fancyhdr}           % tratamento de cabeçalho
+%\usepackage{xspace}             % nem lembro! 
+\usepackage{subfigure}          % Subfiguras
+\usepackage{amsthm,amsfonts}	% Símbolos matemáticos
+% \usepackage{amsfonts}           % fontes matemáticas
+\usepackage{amssymb}            % Símbolos matemáticos
+ \usepackage{amsmath}            % Símbolos matemático
+%\usepackage{apalike}            % referência bibliografica
+\usepackage{multirow}			 %
+\usepackage{algorithm}			%
+\usepackage{algpseudocode}
+\usepackage{indentfirst}		%indentar o primeiro paragrafo
+
+%\usepackage{subtable}
+% enisando a correta separação de sílabas
+\hyphenation{es-ta-be-le-ci-do a-de-qua-da-men-te pro-ble-mas
+   di-men-sio-na-men-to mo-de-lo
+   }
+%\usepackage{graphicx}
+\usepackage[pdftex]{color,graphicx}
+
+
+\usepackage[hang]{footmisc} %nota de rodape
+\setlength{\footnotemargin}{1em}
+%=====================================================================
+% Fazendo algumas definições
+%=====================================================================
+%\geometry{headheight=7mm,headsep=3mm,footskip=7mm}
+%\setlength{\parskip}{2ex plus0.5ex minus0.5ex}
+
+% Para ajustar o espaçamento entre linhas,
+% basta alterar o valor de 'baselinestretch'
+
+% Espaçamento simples
+% Comentar todos os comandos 'renewcommand'
+
+% Espaçamento 1/2 - descomente apenas um
+%\renewcommand{\baselinestretch}{1.25}  % Fonte 10pt
+%\renewcommand{\baselinestretch}{1.21}  % Fonte 11pt
+%\renewcommand{\baselinestretch}{1.24}   % Fonte 12pt
+
+% Espaçamento duplo  - descomente apenas um
+%\renewcommand{\baselinestretch}{1.67}  % Fonte 10pt
+%\renewcommand{\baselinestretch}{1.62}  % Fonte 11pt
+%\renewcommand{\baselinestretch}{1.66}  % Fonte 12pt
+
+\setcounter{secnumdepth}{3}
+
+% Opções de estilo da bibliografia, desmarque apenas uma!
+%---------------------------------------------------------------------
+%\bibliographystyle{plain}  % estilo para labels em números
+%\bibliographystyle{alpha}  % estilo para labels em iniciais
+\bibliographystyle{apalike} % estilo utilizado pela SBC
+%\bibliographystyle{acm}    % estilo utilizado pela ACM
+%---------------------------------------------------------------------
+
+%=====================================================================
+% Dados sobre a Dissertação
+%=====================================================================
+
+
+\include{dados}                 % Edite este arquivo com os seus dados
+% \renewcommand{\baselinestretch}{1.0}   % Fonte 12pt
+\begin{document}
+%\renewcommand{\ALG@name}{Algoritmo}
+%\newcommand{\algorithmicthen}{\textbf{entao}}
+%\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+%=====================================================================
+% Definições para as págias iniciais
+%=====================================================================
+\pagestyle{empty}
+\pagenumbering{roman}
+
+%=====================================================================
+% Páginas iniciais 
+%=====================================================================
+% \include{frontpages/capa}
+ \setcounter{page}{1} 
+% \include{frontpages/folha-rosto}
+\pagestyle{plain}
+
+%%--- Só é utilizado na Dissertação ---%%
+% \include{frontpages/resumo}
+% \include{frontpages/ficha}
+% \include{frontpages/dedicatoria}
+% \include{frontpages/agradecimentos}
+%
+ \tableofcontents
+ \listoffigures
+ \listoftables
+ %\include{lista_de_siglas}           % Lista de Siglas
+
+\label{frontpages}
+
+\clearpage
+
+ \pagestyle{headings}
+
+%=====================================================================
+% Definição do formato de cabeçalho (package fancyhdr.sty)
+% Este material deveria estar em um local mais apropriado
+%=====================================================================
+
+% Definir um estilo para páginas completas (cabeçalho + rodapé)
+% \pagestyle{fancyplain}
+
+% Marca de capítulo do tipo "2. Blábláblá..." no cabeçalho
+%  \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ {#1}}{}}
+
+% Para aumentar o tamanho da caixa para o cabeçalho
+%  \addtolength{\headheight}{\baselineskip}
+
+% Definindo o conteúdo do cabeçalho...
+  \fancyhf{}
+  \fancyhead[LO,LE]{\nouppercase{\textsf{\leftmark}}}
+  \fancyhead[RO,RE]{\thepage}
+
+% Para garantir que a primeira página de cada capítulo...
+  \fancypagestyle{plain}{%
+  \fancyhf{}%                         % não terá head ou foot
+  \renewcommand{\headrulewidth}{0pt}} % nem linhas de cabeçalho
+
+% Capítulos são numerados normalmente
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%=====================================================================
+% Dissertação
+%=====================================================================
+\include{introducao}
+\include{desenvolvimento}
+
+%=====================================================================
+% Incluindo bibliografia
+%=====================================================================
+%\nocite{*}         % listando todo o arquivo .bib
+%\bibliography{referencias}
+\bibliography{bibliografia/bibliografia}
+ 
+%=====================================================================
+% Dissertação estruturada em apdêndices, um arquivo para cada apêndice
+%=====================================================================
+%\appendix
+%\include{apendice}     % Apendice exemplo
+%\include{imml_resumo}      % Resumo da IMML
+%\include{imml_translator}  % Especificação do tradutor
+%\include{imml_sintaxe}     % Sintaxe da IMML
+%\include{imml_esquema}     % Esquema da IMML
+   
+%---------------------------------------------------------------------
+\label{final}          % referência para a última página
+%---------------------------------------------------------------------
+\end{document}
